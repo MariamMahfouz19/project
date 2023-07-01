@@ -17,7 +17,25 @@ const appointment = new Schema({
    reservedDay : {
     type : String
   },
-  appointmentNo : {
+  appointmentNo1 : {
+    type : String,
+  },
+  appointmentNo2 : {
+    type : String,
+  },
+  appointmentNo3 : {
+    type : String,
+  },
+  appointmentNo4 : {
+    type : String,
+  },
+  appointmentNo5 : {
+    type : String,
+  },
+  appointmentNo6 : {
+    type : String,
+  },
+  appointmentNo7: {
     type : String,
   },
   Date: {
