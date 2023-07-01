@@ -90,10 +90,10 @@ const index = (req, res, next) => {
     })
 }
 
-//Show an Appointment For a Specfic Patient By Patient Name.
+//Show an Appointment For a Specfic Patient By his appointment number.
 const show = (req, res, next) => {
-    let patientName = req.body.patientName
-    appointment.find({patientName:patientName})
+    //let appointmentno = req.body.appointmentno
+    appointment.find({appointmentNo:req.body.appointmentNo})
     .then(response => {
     res.json({
     response
@@ -104,7 +104,6 @@ const show = (req, res, next) => {
 })
 
 }
-
 
 //Delete All Appointments for a Doctor by Doctor ID.
 
