@@ -198,10 +198,10 @@ const index = (req, res, next) => {
 
 }
 */
-//Show an Appointment For a Specfic Patient By his appointment number.
+//Show an Appointment For a Specfic Patient By day.
 const show = (req, res, next) => {
-    //let appointmentno = req.body.appointmentno
-    appointment.find({appointmentNo:req.body.appointmentNo})
+    
+    appointment.find({reservedDay:req.body.reservedDay})
     .then(response => {
     res.json({
     response
