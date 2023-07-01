@@ -92,7 +92,14 @@ const { check, validationResult} = require("express-validator/check");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-let appointmentNo=0;
+let appointmentNo1=0;
+let appointmentNo2=0;
+let appointmentNo3=0;
+let appointmentNo4=0;
+let appointmentNo5=0;
+let appointmentNo6=0;
+let appointmentNo7=0;
+
 const store = async (req, res) => {
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -110,14 +117,14 @@ const store = async (req, res) => {
     } = req.body;
     try {
       
-      let appointmentno = await appointment.findOne({
-        appointmentNo: req.body.appointmentNo
+   /*   let appointmentno = await appointment.findOne({
+        appointmentNo1: req.body.appointmentNo1
       });
       if (appointmentno) {
         return res
           .status(409)
           .json({ message: 'Appointment Number already Taken' });
-      }
+      }*/
       let patientname = await appointment.findOne({
         patientName: req.body.patientName
       });
@@ -127,19 +134,115 @@ const store = async (req, res) => {
           .json({ message: 'Patient Name already Exist' });
       }
 
-      
-      
-      appointmentNo++;
+     
+    let reservedDay=(req.body.reservedDay).toLowerCase();
+   // let RD=["saturday","sunday","monday"];
+    if(reservedDay=="saturday" && appointmentNo1!=10){
+        appointmentNo1++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo1
+        });
+        await appointmentno.save();
+    }
+   
+   else if(reservedDay=="sunday"&& appointmentNo2!=10){
+        appointmentNo2++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo2
+        });
+        await appointmentno.save();
+    }
+
+    else if(reservedDay=="monday"&& appointmentNo3!=10){
+        appointmentNo3++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo3
+        });
+        await appointmentno.save();
+    }
+
+    else if(reservedDay=="thuseday" && appointmentNo4!=10){
+        appointmentNo4++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo4
+        });
+        await appointmentno.save();
+    }
+    
+    else if(reservedDay=="wensday" && appointmentNo5!=10){
+        appointmentNo5++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo5
+        });
+        await appointmentno.save();
+    }
+
+    else if(reservedDay=="thrusday" && appointmentNo6!=10){
+        appointmentNo6++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo6
+        });
+        await appointmentno.save();
+    }
+
+    else if(reservedDay=="friday" && appointmentNo7!=10){
+        appointmentNo7++;
+       
+        appointmentno = new appointment({
+            doctorID,
+            doctorName,
+            patientName,
+            reservedDay,
+            appointmentNo7
+        });
+        await appointmentno.save();
+    }
+    else if(appointmentNo1==10 || appointmentNo2==10 || appointmentNo3==10 || appointmentNo4==10 || appointmentNo5==10 || appointmentNo6==10 ||appointmentNo7==10 ){
+        res.json({message:"This Day is complete"})
+
+    }
+
+    /*  appointmentNo++;
         appointmentno = new appointment({
             doctorID,
             doctorName,
             patientName,
             reservedDay,
             appointmentNo
-        });
+        });*/
         //const salt = await bcrypt.genSalt(10);
        // user.password = await bcrypt.hash(password, salt);
-       await appointmentno.save();
+       
       //}
       
         const payload = {
@@ -215,14 +318,10 @@ const show = (req, res, next) => {
 
 const destroy = (req, res, next) => { 
     let doctorID = req.body.doctorID
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        appointment.findOneAndRemove(doctorID)
-    
-    
+    appointment.findByIdAndRemove(doctorID)
 .then(() => {
     res.json({
-        message: 'All Appointments Deleted successfully!!!'
+        message: 'All Appointements Deleted successfully!!!'
     })
 })
     .catch(error => {
@@ -230,7 +329,7 @@ const destroy = (req, res, next) => {
         message: 'An error Occured!!!'
     })
 })
-}}
+}
 module.exports = {
     store,
     index,
