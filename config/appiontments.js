@@ -231,7 +231,20 @@ const store = async (req, res) => {
         res.json({message:"This Day is complete"})
 
     }
+    
 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     /*  appointmentNo++;
         appointmentno = new appointment({
             doctorID,
@@ -318,7 +331,7 @@ const show = (req, res, next) => {
 
 const destroy = (req, res, next) => { 
     let doctorID = req.body.doctorID
-    appointment.findByIdAndRemove(doctorID)
+    appointment.deleteMany({doctorID : doctorID})
 .then(() => {
     res.json({
         message: 'All Appointements Deleted successfully!!!'
