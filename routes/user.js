@@ -2,7 +2,7 @@
 // Filename : user.js
 //let d_id = max value in db
 //last value of did
-let d_id = 7;
+let d_id = 1;
 
 const express = require("express");
 const { check, validationResult } = require("express-validator/check");
