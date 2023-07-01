@@ -42,7 +42,7 @@ const userSchema = new Schema({
     required: 'Specialization is required'
   },
   Dates: {
-    type: [String],
+    type: [Object],
     required: 'Dates are required'
   },
   city: {
