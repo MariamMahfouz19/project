@@ -86,7 +86,7 @@ const updateInfo = (req, res, next) => {
 
 const destroy = (req, res, next) => { 
     let patientID = req.body.patientID
-    abnormalSymptoms.findByIdAndRemove(patientID)
+    abnormalSymptoms.findOneAndRemove(patientID)
 .then(() => {
     res.json({
         message: 'Abnormal Symptoms Deleted successfully!!!'
