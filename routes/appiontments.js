@@ -36,6 +36,6 @@ router.post(
     appiontments.store
 );
 router.get('/all-appointments-for-doctor', appiontments.index)
-router.post('/apponintment-by-patientname-for-doctor', appiontments.show)
+router.post('/apponintment-by-appointmentNo-for-doctor', appiontments.show)
 router.post('/delete-all-appointments-by-doctor-id', appiontments.destroy)
 module.exports = router;
