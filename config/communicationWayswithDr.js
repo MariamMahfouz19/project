@@ -27,30 +27,7 @@ const store = (req, res, next) => {
     
     }
 //Update Communication Ways Info.
-const updateInfo = (req, res, next) => { 
-    let ID = req.body.d_id
 
-    
-    let updatedData = {
-        //d_id:req.body.d_id,
-        WhatsApp_Link: req.body.WhatsApp_Link || Ways.WhatsApp_Link,
-        Telegram_Link: req.body.Telegram_Link || Ways.Telegram_Link,
-        FaceBook_Link: req.body.FaceBook_Link || Ways.FaceBook_Link,
-        Gmail_Link: req.body.Gmail_Link || Ways.Gmail_Link
-    }
-    
-    Ways.findOneAndUpdate(ID, {$set: updatedData})
-    .then(() => {
-    res.json({
-        message: 'Doctor\'s Communication Ways Info. updated successfully!'
-        })
-    })
-        .catch(error => {
-            res.json({
-                message: 'An error Occured!'
-        })
-    })
-    }
 //Delete Communication Ways Info. 
 
 const destroy = (req, res, next) => { 
