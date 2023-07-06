@@ -73,7 +73,7 @@ const index= (req, res, next) => {
 
     module.exports = {
         store,
-        updateInfo,      //update a Doctor Communication Ways Information
+      //  updateInfo,      //update a Doctor Communication Ways Information
         destroy,     //delete One Or More Of Communication Ways of doctor.
         index
     }
