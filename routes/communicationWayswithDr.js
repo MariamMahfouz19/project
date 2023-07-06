@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/store-ways', Ways.store)
-router.put('/update-ways', Ways.updateInfo)
+//router.put('/update-ways', Ways.updateInfo)
 router.get('/show-ways', Ways.index)
 
 router.post('/delete-ways', Ways.destroy)
