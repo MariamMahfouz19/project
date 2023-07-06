@@ -32,6 +32,7 @@ const updateInfo = (req, res, next) => {
 
     
     let updatedData = {
+        //d_id:req.body.d_id,
         WhatsApp_Link: req.body.WhatsApp_Link || Ways.WhatsApp_Link,
         Telegram_Link: req.body.Telegram_Link || Ways.Telegram_Link,
         FaceBook_Link: req.body.FaceBook_Link || Ways.FaceBook_Link,
