@@ -208,7 +208,7 @@ const destroy = async (req, res) => {
         // Find user by id
         let Dynpgfrdr = await dynpgfrdr.findById(req.params.id);
         // Delete image from cloudinary
-        await cloudinary.uploader.destroy(Dynpgfrdr.cloudinary_id);
+       // await cloudinary.uploader.destroy(Dynpgfrdr.cloudinary_id);
         // Delete user from db
         await Dynpgfrdr.remove();
         res.json(res.json({
