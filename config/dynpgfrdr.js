@@ -36,7 +36,9 @@ const show = (req, res, next) => {
 //Adding a new Patient
 const store = async (req, res) => {
     try {
-        const result = await cloudinary.uploader.upload(req.file.path);
+        let result;
+        if(req.file){
+        result = await cloudinary.uploader.upload(req.file.path);}
         let patient = new dynpgfrdr({
             d_id: req.body.d_id,
             patientName: req.body.patientName,
@@ -49,8 +51,8 @@ const store = async (req, res) => {
             diagnosisOfDisease: req.body.diagnosisOfDisease,
             drugs_names: req.body.drugs_names,
             patientGender: req.body.patientGender,
-            avatar: result.secure_url,
-            cloudinary_id: result.public_id,
+            avatar:result?result.secure_url:undefined,
+            cloudinary_id:result?result.public_id:undefined,
             //images : req.body.images,
             /*pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
             xraysImages: req.body.xraysImages,
@@ -207,14 +209,18 @@ const destroy = async (req, res) => {
     try {
         // Find user by id
         let Dynpgfrdr = await dynpgfrdr.findById(req.params.id);
+        console.log(req.params.id);
+        console.log(Dynpgfrdr);
         // Delete image from cloudinary
-       // await cloudinary.uploader.destroy(Dynpgfrdr.cloudinary_id);
+       if(Dynpgfrdr.cloudinary_id) {
+       await cloudinary.uploader.destroy(Dynpgfrdr.cloudinary_id);
+    }
         // Delete user from db
         await Dynpgfrdr.remove();
-        res.json(res.json({
+        res.json({
             message: 'Patient deleted successfully!!!'
         })
-        )
+        
         // Dynpgfrdr);
     } catch (err) {
         // res.json({
