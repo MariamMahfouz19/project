@@ -145,7 +145,8 @@ const store = async (req, res) => {
             doctorName,
             patientName,
             reservedDay,
-            appointmentNo1
+            appointmentNo1,
+            
         });
         await appointmentno.save();
     }
@@ -233,18 +234,6 @@ const store = async (req, res) => {
     }
     
 
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
     /*  appointmentNo++;
         appointmentno = new appointment({
             doctorID,
@@ -316,7 +305,8 @@ const index = (req, res, next) => {
 //Show an Appointment For a Specfic Patient By day.
 const show = (req, res, next) => {
     //let appointmentno = req.body.appointmentno
-    appointment.find({reservedDay:req.body.reservedDay})
+    let reservedDay=(req.body.reservedDay).toLowerCase()
+    appointment.find({reservedDay:reservedDay,doctorID:req.body.doctorID})
     .then(response => {
     res.json({
     response
