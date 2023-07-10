@@ -45,7 +45,7 @@ const PatientSchemaByDoctor = new Schema({
     },
     //Images : Start Point =>
     //Image :
-  /*  avatar:{
+   avatar:{
 		type:String
 	},
     // ID of Image in Cloudinary :
@@ -58,7 +58,7 @@ const PatientSchemaByDoctor = new Schema({
     },
     drugSheetImages: {
         type: String
-    },*/
+    },
     doctorInstructionsAndNotes: {
         type: String
     },
