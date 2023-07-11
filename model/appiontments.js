@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const appointment = new Schema({
   doctorID:{
       type : String,
+    required:true
       //required: "Please Sir, You Must Enter A Doctor ID. "
 
   },
