@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const times_of_Drugs = new Schema({
     d_id: {
-        type: String
+        type: String,
+        required:true
     },
     patientID: {
         type: String,
