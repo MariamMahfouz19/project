@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const PatientSchemaByDoctor = new Schema({
     d_id:{
-      type : String
+      type : String,
+	    required:true
     },
     patientName: {
         type: String
@@ -19,10 +20,12 @@ const PatientSchemaByDoctor = new Schema({
         type: String
     },
     patientEmail: {
-        type: String
+        type: String,
+	    required:true
     },
     patientPassword: {
-        type: String
+        type: String,
+	    required:true
     },
     cancerType: {
         type: String
