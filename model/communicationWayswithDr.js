@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 
 const communicationWays = new Schema({
   d_id:{
-    type : String
+    type : String,
+    required:true
   },
 WhatsApp_Link: {
   type: String,
