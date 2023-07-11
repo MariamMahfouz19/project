@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const abnormalSymptoms = new Schema({
   d_id: {
     type: String,
-    required:true
+   // required:true
   },
 
   abnormalsymptoms: {
