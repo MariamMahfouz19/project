@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   d_id: {
     type: Number,
-    min: 1
+    min: 1,
+    required:true
   },
   name: {
     type: String,
