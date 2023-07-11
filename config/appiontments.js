@@ -135,9 +135,9 @@ const store = async (req, res) => {
       }
 
      
-    let reservedDay=(req.body.reservedDay).toLowerCase();
+    let reservedDay=(req.body.reservedDay);
    // let RD=["saturday","sunday","monday"];
-    if(reservedDay=="saturday" && appointmentNo1!=10){
+    if(reservedDay=="Sat" && appointmentNo1!=10){
         appointmentNo1++;
        
         appointmentno = new appointment({
@@ -151,7 +151,7 @@ const store = async (req, res) => {
         await appointmentno.save();
     }
    
-   else if(reservedDay=="sunday"&& appointmentNo2!=10){
+   else if(reservedDay=="Sun"&& appointmentNo2!=10){
         appointmentNo2++;
        
         appointmentno = new appointment({
@@ -164,7 +164,7 @@ const store = async (req, res) => {
         await appointmentno.save();
     }
 
-    else if(reservedDay=="monday"&& appointmentNo3!=10){
+    else if(reservedDay=="Mon"&& appointmentNo3!=10){
         appointmentNo3++;
        
         appointmentno = new appointment({
@@ -177,7 +177,7 @@ const store = async (req, res) => {
         await appointmentno.save();
     }
 
-    else if(reservedDay=="thuseday" && appointmentNo4!=10){
+    else if(reservedDay=="Tue" && appointmentNo4!=10){
         appointmentNo4++;
        
         appointmentno = new appointment({
@@ -190,7 +190,7 @@ const store = async (req, res) => {
         await appointmentno.save();
     }
     
-    else if(reservedDay=="wensday" && appointmentNo5!=10){
+    else if(reservedDay=="Wed" && appointmentNo5!=10){
         appointmentNo5++;
        
         appointmentno = new appointment({
@@ -203,7 +203,7 @@ const store = async (req, res) => {
         await appointmentno.save();
     }
 
-    else if(reservedDay=="thrusday" && appointmentNo6!=10){
+    else if(reservedDay=="Thu" && appointmentNo6!=10){
         appointmentNo6++;
        
         appointmentno = new appointment({
@@ -216,7 +216,7 @@ const store = async (req, res) => {
         await appointmentno.save();
     }
 
-    else if(reservedDay=="friday" && appointmentNo7!=10){
+    else if(reservedDay=="Fri" && appointmentNo7!=10){
         appointmentNo7++;
        
         appointmentno = new appointment({
@@ -305,7 +305,7 @@ const index = (req, res, next) => {
 //Show an Appointment For a Specfic Patient By day.
 const show = (req, res, next) => {
     //let appointmentno = req.body.appointmentno
-    let reservedDay=(req.body.reservedDay).toLowerCase()
+    let reservedDay=(req.body.reservedDay)
     appointment.find({reservedDay:reservedDay,doctorID:req.body.doctorID})
     .then(response => {
     res.json({
