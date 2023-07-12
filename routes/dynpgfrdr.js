@@ -66,30 +66,7 @@ router.get('/',async(req,res)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-router.get('/all-patients', dynpgfrdrController.index)
+router.post('/all-patients', dynpgfrdrController.index)
 router.post('/patient-by-patientname', dynpgfrdrController.show)
 router.post('/store', upload.single('image'),dynpgfrdrController.store)
 router.put('/update/:id',upload.single('image'), dynpgfrdrController.update)
