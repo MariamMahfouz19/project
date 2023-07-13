@@ -38,7 +38,8 @@ const store = async (req, res) => {
     try {
         let result;
         if(req.file){
-        result = await cloudinary.uploader.upload(req.file.path);}
+        result = await cloudinary.uploader.upload(req.file.path);
+        }
         let patient = new dynpgfrdr({
             d_id: req.body.d_id,
             patientName: req.body.patientName,
@@ -51,8 +52,8 @@ const store = async (req, res) => {
             diagnosisOfDisease: req.body.diagnosisOfDisease,
             drugs_names: req.body.drugs_names,
             patientGender: req.body.patientGender,
-            avatar:result?result.secure_url:undefined,
-            cloudinary_id:result?result.public_id:undefined,
+           /* avatar:result?result.secure_url:undefined,
+            cloudinary_id:result?result.public_id:undefined,*/
             //images : req.body.images,
             /*pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
             xraysImages: req.body.xraysImages,
