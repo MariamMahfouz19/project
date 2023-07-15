@@ -11,28 +11,28 @@ const times_of_Drugs = new Schema({
         type: String,
     },
     drug_name: {
-        type: [Object],
+        type: String,
         required: "Name of Drug is Required."
     },
     how_often: {
-        type: [Object],
+        type: String,
         required: "The Number Of Times The Drug is Taken is Required."
     },
     time_one: {
-        type: [Object],
+        type: String,
         required: "Time For Taking Drug is Required."
     },
     time_two: {
-        type: [Object]
+        type: String
     },
     time_three: {
-        type: [Object]
+        type: String
     },
     every_When: {
-        type: [Object]
+        type: String
     },
     usage_of_drug: {
-        type: [Object]
+        type: String
     }
 })
 
