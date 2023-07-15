@@ -1,7 +1,7 @@
 const times_of_Drugs = require('../model/times_of_drugs');
 // Show the All Times of Drugs For Patient.
 const index = (req, res, next) => {
-    times_of_Drugs.findOne({ patientID: req.body.patientID })
+    times_of_Drugs.find({ patientID: req.body.patientID })
         .then(response => {
             res.json({
                 response
